@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="delhi.nitdelhi.mpaul24.register.HostelActivity"
+    tools:showIn="@layout/activity_hostel">
+
+    <LinearLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/checkinhos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CHECK IN"/>
+
+        <Button
+            android:id="@+id/checkouthos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CHECK OUT"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
