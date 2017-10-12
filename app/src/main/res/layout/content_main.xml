@@ -1,61 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blueGray900"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="delhi.nitdelhi.mpaul24.register.MainActivity"
     tools:showIn="@layout/activity_main">
 
     <LinearLayout
-        android:layout_width="368dp"
-        android:layout_height="495dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_centerInParent="true"
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp">
 
         <Button
             android:id="@+id/register"
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/green500"
+            android:textColor="@android:color/white"
             android:text="@string/register" />
 
         <Button
             android:id="@+id/hosButton"
+            android:layout_margin="10dp"
+            android:background="@color/lightBlue500"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
             android:text="@string/hostel" />
 
         <Button
             android:id="@+id/libButton"
+            android:layout_margin="10dp"
+            android:background="@color/red500"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
             android:text="@string/library" />
 
         <Button
             android:id="@+id/ccButton"
+            android:layout_margin="10dp"
+            android:background="@color/green500"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
             android:text="@string/computer_center" />
 
         <Button
+            android:id="@+id/update"
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="SHOW"
+            android:background="@color/lightBlue500"
+            android:textColor="@android:color/white"
+            android:text="@string/update"
             android:onClick="show"/>
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/textt"
-                android:padding="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
 
-        </ScrollView>
 
     </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+
+
+</RelativeLayout>

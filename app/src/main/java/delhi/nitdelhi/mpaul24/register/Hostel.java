@@ -32,28 +32,28 @@ public class Hostel extends Facility {
     }
 
     boolean checkedOut(Record r){
-        Log.e(MainActivity.TAG,""+outOfHostel);
         if(getHostelStatus()){
             return false;
         }
         outOfHostel = true;
         this.r = r;
+        r.setTime_out(new Date());
         return true;
     }
 
-    boolean checkedIn(){
-        Log.e(MainActivity.TAG,""+outOfHostel);
-        if(Library.getInstance().getLibraryStatus() || ComputerCenter.getInstance().getCCStatus() ||
-                !getHostelStatus()){
-            Log.e(MainActivity.TAG,Library.getInstance().getLibraryStatus()+"\n"+ComputerCenter.getInstance().getCCStatus()+
-            "\n"+!getHostelStatus()+"\n");
-            return false;
+    int checkedIn(){
+        if(Library.getInstance().getLibraryStatus()){
+            return -1;
+        }else if(ComputerCenter.getInstance().getCCStatus()){
+            return -2;
+        }else if(!getHostelStatus()){
+            return 0;
         }
         r.setTime_in(new Date());
         r.setDuration();
         outOfHostel = false;
         addRecord();
-        return true;
+        return 1;
     }
 
 
@@ -61,7 +61,7 @@ public class Hostel extends Facility {
     void addRecord() {
         Gson gson = new Gson();
         String record = gson.toJson(r);
-        Collection.getInstance().add(record);
+        Collection.getInstance().add(r);
     }
 
     @Override

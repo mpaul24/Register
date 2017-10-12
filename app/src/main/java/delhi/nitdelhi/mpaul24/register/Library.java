@@ -29,22 +29,25 @@ public class Library extends Facility {
         return inLibrary;
     }
 
-    boolean checkedIn(){
-        if(!Hostel.getInstance().getHostelStatus()){//out of hostel
-            return false;
-        }else if(ComputerCenter.getInstance().getCCStatus() || getLibraryStatus()){//in CC
-            return false;
+    int checkedIn(){
+        if(ComputerCenter.getInstance().getCCStatus() ){//in CC
+            return 0;
+        }else if(getLibraryStatus()){
+            return -2;
+        }else if(!Hostel.getInstance().getHostelStatus() && !Student.getInstance().getHostel().equals("DAY SCHOLAR")){//not out of hostel
+            return -1;
         }
-        r = new Record(Student.getInstance(), new Date());
+        r = new Record(Student.getInstance(),RecordType.Library);
+        r.setTime_in(new Date());
         inLibrary = true;
-        return true;
+        return 1;
     }
 
     boolean checkedOut(){
         if(!getLibraryStatus()) {
             return false;
         }
-        r.setTime_in(new Date());
+        r.setTime_out(new Date());
         r.setDuration();
         inLibrary = false;
         addRecord();
@@ -55,7 +58,7 @@ public class Library extends Facility {
     void addRecord() {
         Gson gson = new Gson();
         String record = gson.toJson(r);
-        Collection.getInstance().add(record);
+        Collection.getInstance().add(r);
     }
 
     @Override

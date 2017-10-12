@@ -30,22 +30,25 @@ public class ComputerCenter extends Facility {
         return inCC;
     }
 
-    boolean checkedIn(){
-        if(!Hostel.getInstance().getHostelStatus()){//not out of hostel
-            return false;
-        }else if(Library.getInstance().getLibraryStatus() || getCCStatus()){// in Library
-            return false;
+    int checkedIn(){
+        if(Library.getInstance().getLibraryStatus() ){// in Library
+            return -1;
+        }else if(getCCStatus()){
+            return -2;
+        }else if(!Hostel.getInstance().getHostelStatus() && !Student.getInstance().getHostel().equals("DAY SCHOLAR")){//not out of hostel
+            return 0;
         }
-        r = new Record(Student.getInstance(), new Date());
+        r = new Record(Student.getInstance(),RecordType.ComputerCenter);
+        r.setTime_in(new Date());
         inCC = true;
-        return true;
+        return 1;
     }
 
     boolean checkedOut(){
         if(!getCCStatus()) {
             return false;
         }
-        r.setTime_in(new Date());
+        r.setTime_out(new Date());
         r.setDuration();
         inCC = false;
         addRecord();
@@ -56,7 +59,7 @@ public class ComputerCenter extends Facility {
     void addRecord() {
         Gson gson = new Gson();
         String record = gson.toJson(r);
-        Collection.getInstance().add(record);
+        Collection.getInstance().add(r);
     }
 
     @Override

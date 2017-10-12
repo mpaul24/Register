@@ -1,5 +1,7 @@
 package delhi.nitdelhi.mpaul24.register;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 /**
@@ -7,7 +9,7 @@ import java.util.ArrayList;
  */
 
 public class Collection {
-    ArrayList<String> list = new ArrayList<>();
+    ArrayList<Record> list = new ArrayList<>();
     static Collection c;
 
     static Collection getInstance(){
@@ -18,7 +20,11 @@ public class Collection {
         return c;
     }
 
-    void add(String record){
+    static void RestoreObject(Collection col){
+        c = col;
+    }
+
+    void add(Record record){
         list.add(record);
     }
 
@@ -26,12 +32,16 @@ public class Collection {
         list.remove(n);
     }
 
-    String get(int n){
+    Record get(int n){
         return list.get(n);
     }
 
     int getSize(){
         return list.size();
+    }
+
+    void clear(){
+        list.clear();
     }
 
 }

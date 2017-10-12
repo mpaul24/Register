@@ -11,10 +11,12 @@
         <item>SRHC BH1</item>
         <item>SRHC BH2</item>
         <item>NIT DELHI</item>
-        <item>Rohini</item>
-        <item>Kundli</item>
+        <item>ROHINI</item>
+        <item>KUNDLI</item>
+        <item>DAY SCHOLAR</item>
     </string-array>
     <string name="title_activity_library">LibraryActivity</string>
     <string name="title_activity_cc">CCActivity</string>
     <string name="title_activity_hostel">HostelActivity</string>
+    <string name="update">UPDATE</string>
 </resources>

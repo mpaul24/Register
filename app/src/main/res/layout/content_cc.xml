@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blueGray900"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="delhi.nitdelhi.mpaul24.register.CCActivity"
     tools:showIn="@layout/activity_cc">
@@ -19,12 +20,18 @@
             android:id="@+id/checkincc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@color/green500"
+            android:textColor="@android:color/white"
             android:text="CHECK IN"/>
 
         <Button
             android:id="@+id/checkoutcc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@color/red500"
+            android:textColor="@android:color/white"
             android:text="CHECK OUT"/>
 
 
